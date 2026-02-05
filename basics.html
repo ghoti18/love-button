@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+   <style>
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+    button{
+
+        width: 140px;   
+        height: 30px; 
+        margin: 5px;
+        padding: 5px;
+         transition: transform 0.3s ease, background 0.3s ease;
+         cursor: pointer;
+    }
+    .no{
+         position: absolute;
+         top:25%;
+    }
+    .button:hover{
+        background-color: black;
+        color: white;
+        transform: scale(1.1);
+    }
+    p{
+        position: absolute;
+        top: 20%;
+        visibility:hidden;
+        z-index: 1;
+    }
+
+   </style>
+
+</head>
+<body>
+    <h1>Do you love me?</h1>
+    <br>
+    <button class="button">Yes</button>
+    <p class="p">I love you more hope you didn't attempt to click the no :D</p>
+    <button class="no">No</button>
+</body>
+</html>
+<script>
+
+const noBtn = document.querySelector(".no");
+
+noBtn.addEventListener("mouseenter", () => {
+  const maxX = window.innerWidth - noBtn.offsetWidth;
+  const maxY = window.innerHeight - noBtn.offsetHeight;
+
+  const randomX = Math.random() * maxX;
+  const randomY = Math.random() * maxY;
+
+  noBtn.style.left = `${randomX}px`;
+  noBtn.style.top = `${randomY}px`;
+});
+
+const yesbtn = document.querySelector('.button');
+yesbtn.addEventListener('click', () => {
+const p = document.querySelector('.p');
+    p.style.visibility = (p.style.visibility === "hidden") ? "visible" : "hidden";
+
+});
+
+</script>
